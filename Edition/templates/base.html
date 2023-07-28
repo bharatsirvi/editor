@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Montserrat:wght@400;500&family=Space+Grotesk&display=swap"
+        rel="stylesheet">
+    <link {% block cssname %}{% endblock cssname %}>
+    <link rel="shortcut icon" href="static/img/img-logo.png" type="image/x-icon">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="leftnav">
+                <img src="static/img/img-logo.png" width='40px' alt="logo">
+                <h1 id="heading">Image Editor</h1>
+            </div>
+            <div class="rightnav">
+                <li class="navitem"><a  id="h" href="/home">Home</a></li>
+                <li id="drop" class="navitem">
+                    <a id="s" href="/home">Services <span class="dropdown-symbol">&#10094;</span></a> 
+                    <ul class="dropdown">
+                        <li><a href="/home">Resize</a></li>
+                        <li><a href="/crop">Crop</a></li>
+                        <li><a href="/flip">Flip</a></li>
+                    </ul>     
+                </li>
+                <li class="navitem"><a id="a" href="/about">About</a></li>
+                <li class="navitem"><a id="co" href="/contact">Contact</a></li>
+            </div>
+        </nav>
+        <hr>
+        {% block contact %}
+        <div class="content">
+            <div class="body">
+                <div class="option">
+                    <a id="r" href="/home">Resize</a>
+                    <a id="c" href="/crop">Crop</a>
+                    <a id="f" href="/flip">Filp & Rotate</a>
+                </div>     
+                {% block Content %}
+                {% endblock Content %}
+            </div>
+            {% block img-block %}
+            {% endblock img-block %}      
+        </div>
+        {% endblock contact %}
+    </div>
+    {% block js %}
+
+    {% endblock js %}    
+</body>
+
+</html>

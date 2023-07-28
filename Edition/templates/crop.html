@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block cssname %}rel="stylesheet" href="static/css/style-crop.css"{% endblock cssname %}
+
+{% block title %}Home{% endblock title %}
+{% block Content %}
+ <!-- classchange reshape-form to crop-form-->
+<form action="" class="crop-form">
+    <div class="setting">
+        <!-- classchange  resize-setting to crop-setting -->
+        <div class="crop-setting">   
+            <h2 class="setting-name">Crop Rectangle</h2> 
+            <div class="dem">
+                <div class="wh-box">
+                    <p>Width</p>
+                    <input class="wh-input" type="number" name="cwidth" min="0" value="500">
+                </div>
+                <div class="wh-box">
+                    <p>Height</p>
+                    <input class="wh-input" type="number" min="0" name="cheight" value="500">
+                </div>
+            </div>
+        </div>
+        <!-- classchange export-setting to crop-position-->
+        <div class="crop-position">
+            <h2 class="setting-name">Crop Position</h2>
+            <!-- classchange dem to postion -->
+            <div class="position">
+                <!-- classchange wh-box to xy-box -->
+                <div class="xy-box">
+                    <p>Position (X)</p>
+                     <!-- classchange wh-input to xy-input -->
+                    <input class="xy-input" type="number" name="position-x" min="0" value="500">
+                </div>
+                <div class="xy-box">
+                    <p>Position (Y)</p>
+                    <input class="xy-input" type="number" min="0" name="position-y" value="500">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-class">
+        <input class="crop-btn btn" type="submit" value="Crop">
+        <input class="reset-btn btn" type="submit" value="Reset">
+    </div>
+</form>
+{% endblock Content %}
+
+{% block img-block %}
+<div class="imgblock">
+    {% if obj.img %}
+    <div class="image">
+        <img src="{{obj.img.url}}" alt="PHOTO">
+    </div>
+    {%else%}
+    {% endif %}
+</div>
+{% endblock img-block %}
+
+b
