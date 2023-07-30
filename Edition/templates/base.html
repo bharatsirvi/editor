@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/cropperjs@1.5.12/dist/cropper.css">
+<script src="https://unpkg.com/cropperjs@1.5.12/dist/cropper.js"></script>
+<script>
+    // Function to handle the popstate event (when the user navigates back)
+    function handlePopstate(event) {
+      window.location.href = ''; // Change '/' to the actual URL of your homepage
+    }
+  
+    // Add an event listener for the popstate event
+    window.addEventListener('popstate', handlePopstate);
+  </script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link
@@ -25,7 +38,7 @@
             <div class="rightnav">
                 <li class="navitem"><a  id="h" href="/home">Home</a></li>
                 <li id="drop" class="navitem">
-                    <a id="s" href="/home">Services <span class="dropdown-symbol">&#10094;</span></a> 
+                    <a id="s" href="#">Tools <span class="dropdown-symbol">&#10094;</span></a> 
                     <ul class="dropdown">
                         <li><a href="/home">Resize</a></li>
                         <li><a href="/crop">Crop</a></li>
@@ -34,6 +47,14 @@
                 </li>
                 <li class="navitem"><a id="a" href="/about">About</a></li>
                 <li class="navitem"><a id="co" href="/contact">Contact</a></li>
+                <li class="navitem reup">
+                <a href="/">
+                    <button class="upbtn" style="border: none;" title="Reupload">
+                    <i id="reupload" style="font-size:24px" class="fa">&#xf093;</i>
+                    </button> 
+                </a>
+                </li>
+                <li class="navitem rst"><a id="rst" href="/reset">RESET</a></li>
             </div>
         </nav>
         <hr>

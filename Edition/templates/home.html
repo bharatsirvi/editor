@@ -4,12 +4,14 @@
 {% block title %}Home{% endblock title %}
 
 {% block Content %}
-<form action="" class="reshape-form">
+<form action="/resize" method="post" class="reshape-form">
+    {% csrf_token %}
     <div class="setting">
         <div class="resize-setting">
             <h2 class="setting-name">Resize Settings</h2>
            
             {% if type %}
+            <input type="hidden" name="type" value="dimensions">
             <div class="way">
                 <a id="way1" style=" background-color: white;" href="/dimensions">Dimensions</a>
                 <a id="way2" style="opacity: 50%;" href="/percentage">As Percentage</a>
@@ -42,6 +44,7 @@
                 </div>
             </div>
             {% else %}
+            <input type="hidden" name="type" value="percentage">
             <div class="way">
                 <a id="way1" style="opacity: 50%;" href="/dimensions">Dimensions</a>
                 <a id="way2" style="background-color: white; opacity: 100%;" href="/percentage">As Percentage</a>
@@ -74,15 +77,22 @@
 {% endblock Content %}
 
 {% block img-block %}
+
 <div class="imgblock">
     {% if obj.img %}
-    <div class="image">
-        <img id="imageDisplay" src="{{obj.img.url}}" alt="PHOTO">
-    </div>
-    {%else%}
+        {% if obj.processed_img %}
+        <div class="image">
+            <img id="imageDisplay" src="{{ obj.processed_img.url }}" alt="PROCESSEDPHOTO">
+        </div>
+        {% else %}
+        <div class="image">
+            <img id="imageDisplay" src="{{ obj.img.url }}" alt="ORIGINAL_PHOTO">
+        </div>
+        {% endif %}
     {% endif %}
 </div>
 {% endblock img-block %}
+
 
 {% block js %}
 
@@ -207,8 +217,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const lockAspectRatioCheckbox = document.getElementById('lock-aspect-ratio');
 
     // Store the original width and height
+   {% if obj.processed_img %}
+
+        const originalWidth = {{obj.processed_img.width }};
+        const originalHeight = {{ obj.processed_img.height }};
+
+   {% else %}
+
     const originalWidth = {{ obj.img.width }};
     const originalHeight = {{ obj.img.height }};
+    
+   {% endif %}
+        
 
     // Initialize the input fields with the original width and height
     widthInput.value = originalWidth;

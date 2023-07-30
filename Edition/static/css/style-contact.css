@@ -24,20 +24,30 @@
     gap:5px;
     list-style: none;
   }
-   .rightnav a{
+  .rightnav #h ,.rightnav #s ,.rightnav #co ,.rightnav #a {
     text-decoration: none;
     font-size: 1.1rem;
     font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
     background-color: white;
     border-radius: 8px;
-    width: 140px;
-    padding: 10px 65px;
+    width: 120px;
+    padding: 10px 60px;
     color: black;
     display: flex;
     justify-content: center;
   }
- 
+  .reup{
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+  .reup button:hover{
+    cursor: pointer;
+  }
+  .rst{
+    margin-left:16px;
+    display: none;
+  }
     /* dropdown html  */
     .dropdown{
       display: none;
@@ -154,4 +164,15 @@
 .submit:hover{
     cursor: pointer;
     background-color: #2e9333;
+}
+.footer{
+  position: absolute;
+    display: flex;
+    left: 680px;
+    bottom: 9px;
+    justify-content: center;
+    /* align-items: center; */
+    /* width: 100%; */
+    color: black;
+    opacity: 80%;
 }

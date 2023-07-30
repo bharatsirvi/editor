@@ -24,21 +24,30 @@
       gap:5px;
       list-style: none;
     }
-     .rightnav a{
+    .rightnav #h ,.rightnav #s ,.rightnav #co ,.rightnav #a {
       text-decoration: none;
       font-size: 1.1rem;
       font-family: 'Space Grotesk', sans-serif;
       text-decoration: none;
       background-color: white;
       border-radius: 8px;
-      width: 140px;
-      padding: 10px 65px;
+      width: 120px;
+      padding: 10px 60px;
       color: black;
       display: flex;
       justify-content: center;
     }
-  
- 
+    .reup{
+      margin-left: 30px;
+      margin-right: 20px;
+    }
+    .rst{
+      margin-left:16px;
+      display: none;
+    }
+    .reup button:hover{
+      cursor: pointer;
+    }
     /* dropdown html  */
     .dropdown{
       display: none;
@@ -109,7 +118,7 @@
     }
     .main{
         width: 100%;
-        height: 1200px;
+        height: 1230px;
         opacity: 100%;
         display: flex;
         flex-direction: column ;
@@ -228,4 +237,15 @@
         /* margin:4px 4px ; */
         /* border: 2px solid rgba(1, 175, 255, 0.714); */
 
+    }
+    .footer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to top, #ace1f921 100%, #e4e0de00 0%);
+      width: 100%;
+      height: 25px;
+      color: black;
+      padding:20px 0;
+      opacity: 80%;
     }
